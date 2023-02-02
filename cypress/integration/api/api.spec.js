@@ -51,13 +51,20 @@ describe('API', () => {
                     expect(article.createdAt).to.not.be.empty;
                     expect(article.author).to.not.be.empty;
                     expect(article.description).to.not.be.empty;
+                    expect(article.tagList).to.not.be.empty;
                     expect(article.body).to.not.be.empty;
                     expect(article.favorited).to.be.a('boolean');
                     expect(article.favoritesCount).to.be.a('number');
+                    expect(article.updatedAt).to.not.be.empty;
 
                     // checking author
                     const { author } = article;
-                    expect(author).to.have.all.keys('bio', 'following', 'image', 'username');
+                    expect(author).to.have.all.keys(
+                        'bio',
+                        'following',
+                        'image',
+                        'username'
+                    );
                     expect(author.following).to.be.a('boolean');
                     expect(author.username).to.not.be.empty;
                     expect(author.image).to.match(/^https/);

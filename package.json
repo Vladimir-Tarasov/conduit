@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Vladimir4932/conduit#readme",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "chai": "^4.3.7",
     "cypress": "^9.7.0"
   }
 }
