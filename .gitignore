@@ -1,0 +1,13 @@
+.idea
+node_modules
+package-lock.json
+cypress/downloads
+cypress/screenshots
+cypress/snapshots
+cypress/videos
+screenshots
+snapshots
+videos
+.DS_Store
+downloads/
+.env

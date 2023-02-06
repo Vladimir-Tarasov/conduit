@@ -1,0 +1,24 @@
+{
+  "name": "conduit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vladimir4932/conduit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vladimir4932/conduit/issues"
+  },
+  "homepage": "https://github.com/Vladimir4932/conduit#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "chai": "^4.3.7",
+    "cypress": "^9.7.0"
+  }
+}
