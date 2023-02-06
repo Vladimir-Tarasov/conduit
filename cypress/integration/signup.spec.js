@@ -1,3 +1,5 @@
+///<reference types="cypress" />
+
 import { getRandomNumber } from '/cypress/support/utils';
 import meUser from '/cypress/fixtures/me-user.json';
 import { login } from '/cypress/support/shared.js';
@@ -16,7 +18,7 @@ describe('Sign up', () => {
 
         cy.get('.auth-page').as('registerPage');
         cy.get('@registerPage').find('h1').should('have.text', 'Sign up');
-        cy.get('@registerPage').find('form').should('be.visible').as('registerForm');
+        cy.get('@registerPage').find('form').should('be.visible').as('signupForm');
 
         const rnd = getRandomNumber(1000, 9999);
 
