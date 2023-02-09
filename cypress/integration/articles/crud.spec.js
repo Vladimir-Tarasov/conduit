@@ -2,7 +2,7 @@
 
 import { faker } from '@faker-js/faker';
 import { login } from '/cypress/support/shared';
-import meUser from '/cypress/fixtures/me-user.json';
+import meUser from '../../fixtures/me-user.json';
 
 function generateFakeArticle() {
 
@@ -67,7 +67,7 @@ function checkArticle(article) {
     }
 
     // check Markdown is rendered to HTML
-    cy.get('@articlePage').find('[ng-bind-html$=markdown]')
+    cy.get('@articlePage').find('[ng-bind-html="::$ctrl.article.body"]')
         .invoke('prop', 'innerHTML')
         .should('contains', '<strong>healthy</strong>')
         .should('contains', '<em>tasty.</em>')
@@ -190,5 +190,4 @@ describe('Articles', () => {
 
         checkArticle(newArticle);
     });
-
 });

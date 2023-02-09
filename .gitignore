@@ -11,3 +11,4 @@ videos
 .DS_Store
 downloads/
 .env
+cypress/integration/fixing-code
