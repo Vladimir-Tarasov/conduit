@@ -1,1 +1,1 @@
-cypress/support/shared.js|cypress/support/|shared.js
+test_cases/articles/global_feed/open_article_detail_page.md|/test_cases/global_feed/|open_article_detail_page.md
