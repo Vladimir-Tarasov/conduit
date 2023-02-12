@@ -1,6 +1,7 @@
 import meUser from '../fixtures/me-user.json';
 
 export function login() {
+    cy.get('.navbar').should('be.visible').as('appHeader');
 
     cy.get('@appHeader').find('a[href$="/login"]').click();
     cy.url().should('include', '/#/login');
@@ -14,8 +15,7 @@ export function login() {
     cy.get('@loginForm').find('button[type=submit]').click();
 
     cy.get('@appHeader').should('contain.text', meUser.username);
-
-}
+};
 
 export function setJwtToken(window, token) {
     window.localStorage.setItem('jwtToken', token);
