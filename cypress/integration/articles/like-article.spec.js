@@ -10,9 +10,9 @@ describe('like article test', () => {
             .should('have.class', 'active');
         cy.get('article-list').as('articleList');
     })
+
     it('should test like article', () => {
         const rand = getRandomNumber(0, 9);
-
         cy.get('@articleList')
             .contains('.article-preview', 'Loading')
             .should('not.be.visible');
