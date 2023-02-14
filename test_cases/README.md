@@ -15,4 +15,9 @@ This file contains test cases for [Conduit](https://demo.realworld.io/) project.
 * [x] [delete article](articles/crud/delete_article.md)
 * [x] [edit article](articles/crud/edit_article.md)
 
-* [ ] global articles feed
+## Global feed
+* [ ] [display article list](global_feed/display_article_list.md)
+* [ ] [open article detail page](global_feed/open_article_detail_page.md)
+* [ ] like article
+* [ ] [navigate in list by paging](global_feed/navigate_in_list_by_paging.md)
+* [ ] filter articles by tag

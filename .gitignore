@@ -11,3 +11,6 @@ videos
 .DS_Store
 downloads/
 .env
+cypress/integration/fixing-code
+mama_files.txt
+download.js

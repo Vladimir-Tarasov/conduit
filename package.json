@@ -20,5 +20,9 @@
     "@faker-js/faker": "^7.6.0",
     "chai": "^4.3.7",
     "cypress": "^9.7.0"
+  },
+  "dependencies": {
+    "node-wget": "^0.4.3",
+    "package": "^1.0.1"
   }
 }
