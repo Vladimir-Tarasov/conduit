@@ -18,6 +18,10 @@ This file contains test cases for [Conduit](https://demo.realworld.io/) project.
 ## Global feed
 * [ ] [display article list](global_feed/display_article_list.md)
 * [ ] [open article detail page](global_feed/open_article_detail_page.md)
-* [ ] like article
+* [ ] [like article](global_feed/like_article.md)
 * [ ] [navigate in list by paging](global_feed/navigate_in_list_by_paging.md)
 * [ ] filter articles by tag
+
+# Commenting
+* [ ] add comment
+* [ ] delete comment
