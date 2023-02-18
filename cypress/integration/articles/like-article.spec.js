@@ -1,7 +1,6 @@
 import { getRandomNumber, login } from '../../support/shared';
 
 describe('like article test', () => {
-    // const loginUser = login();
     before(() => {
         cy.visit('/');
         login();
@@ -61,4 +60,4 @@ describe('like article test', () => {
                 });
             });
     });
-});
+})
