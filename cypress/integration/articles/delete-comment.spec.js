@@ -1,7 +1,7 @@
 import { getRandomNumber, login } from '../../support/shared';
 const { faker } = require('@faker-js/faker');
 
-describe('test add comment', () => {
+describe('test delelte comment', () => {
     before(() => {
         cy.visit('/');
         cy.location('hash').should('eq', '#/');
@@ -9,7 +9,7 @@ describe('test add comment', () => {
         login();
     });
 
-    it('should test add comment', () => {
+    it('should test delete comment', () => {
         cy.get('.feed-toggle ul li:nth-child(2) a').click();
 
         cy.get('article-list').as('articleList');
@@ -32,5 +32,11 @@ describe('test add comment', () => {
 
         cy.get('.article-page')
             .should('contain', randomText);
+
+        cy.get('comment .card-footer .mod-options')
+            .eq(0)
+            .click();
+        cy.get('.article-page')
+            .should('not.contain', randomText);
     });
 });
