@@ -1,9 +1,11 @@
 import { getRandomNumber, login } from '../../support/shared';
+import meUser from '../../fixtures/me-user.json';
+import { setJwtToken } from '../../support/utils';
 
 describe('like article test', () => {
     before(() => {
         cy.visit('/');
-        login();
+        //login();
         cy.location('hash').should('eq', '#/');
         cy.get('.feed-toggle ul > li:nth-child(2) a').click()
             .should('have.class', 'active');
@@ -11,12 +13,24 @@ describe('like article test', () => {
     })
 
     it('should test like article', () => {
+        cy.readFile('token.txt')
+            .should('not.be.empty')
+            .then(token => {
+                cy.visit('/', {
+                    onBeforeLoad: (window) => setJwtToken(window, token)
+                });
+            });
+        cy.get('.navbar').should('be.visible')
+            .should('contain.text', meUser.username);
+
         const rand = getRandomNumber(0, 9);
         cy.get('@articleList')
             .contains('.article-preview', 'Loading')
             .should('not.be.visible');
 
         cy.get('@articleList')
+
+            //TODO test failed on that step
             .find('article-preview')
             .eq(rand)
             .as('randomArticle');

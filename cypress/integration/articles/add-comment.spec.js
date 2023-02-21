@@ -1,4 +1,7 @@
 import { getRandomNumber, login } from '../../support/shared';
+import meUser from '../../fixtures/me-user.json';
+import { setJwtToken } from '../../support/utils';
+
 const { faker } = require('@faker-js/faker');
 
 describe('test add comment', () => {
@@ -6,10 +9,20 @@ describe('test add comment', () => {
         cy.visit('/');
         cy.location('hash').should('eq', '#/');
         cy.get('.navbar').should('be.visible').as('uppHeader');
-        login();
+        // login();
     });
 
     it('should test add comment', () => {
+        cy.readFile('token.txt')
+            .should('not.be.empty')
+            .then(token => {
+                cy.visit('/', {
+                    onBeforeLoad: (window) => setJwtToken(window, token)
+                });
+            });
+        cy.get('.navbar').should('be.visible')
+            .should('contain.text', meUser.username);
+
         cy.get('.feed-toggle ul li:nth-child(2) a').click();
 
         cy.get('article-list').as('articleList');
