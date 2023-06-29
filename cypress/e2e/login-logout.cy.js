@@ -12,9 +12,6 @@ describe('Sign in user', () => {
     it('should login user', () => {
         login.openLoginForm()
             .login();
-    });
-
-    it('should logout user', () => {
         login.openSettings()
-    })
+    });
 })
