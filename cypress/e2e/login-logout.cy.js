@@ -13,5 +13,7 @@ describe('Sign in user', () => {
         login.openLoginForm()
             .login();
         login.openSettings()
+            .submitLogout()
+            .checkLogout();
     });
 })

@@ -18,8 +18,9 @@ export class Login {
     };
 
     button = {
-        submit: 'button[type=submit]'
-    }
+        submit: 'button[type=submit]',
+        logout: 'button[ng-click="$ctrl.logout()"]'
+    };
 
     openLoginForm() {
         cy.get('@appHeader').find(this.link.login).click();
@@ -64,6 +65,11 @@ export class Login {
     }
 
     submitLogout() {
+        cy.get(this.button.logout).click();
+        return this;
+    }
 
+    checkLogout() {
+        cy.get('@appHeader').should('not.contain.text', meUser.username);
     }
 }
