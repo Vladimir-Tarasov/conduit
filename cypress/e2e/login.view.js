@@ -51,7 +51,8 @@ export class Login {
     }
 
     login() {
-        this.inputEmail()
+        this.openLoginForm()
+            .inputEmail()
             .inputPassword()
             .submit()
             .checkLogin();
