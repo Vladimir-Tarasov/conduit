@@ -39,7 +39,7 @@ describe('signup', () => {
             });
     });
 
-    it.only('should not do register user with empty data', () => {
+    it('should not register user with empty data', () => {
 
         const payload = {
             user: { username: '', email: '', password: '' }
@@ -56,7 +56,30 @@ describe('signup', () => {
                 const message = email.join('');
                 expect(message).to.have.eq('can\'t be blank');
             });
-
     });
 
+    it.only('should get logged me user', () => {
+
+        cy.readFile('token.txt')
+            .should('not.be.empty')
+            .then(token => {
+                cy.request({
+                    method: 'GET',
+                    url: '/user',
+                    headers: {
+                        'Authorization': `Token ${token}`
+                    }
+                }).then(({ status, body }) => {
+                    debugger;
+
+                    expect(status).to.eq(200);
+                    expect(body).to.have.key('user');
+                    const { user } = body;
+                    expect(user).to.have.keys('username', 'email', 'bio', 'image', 'token');
+                    expect(user.username).to.not.be.empty;
+                    expect(user.email).to.not.be.empty;
+                    expect(user.image).to.not.be.empty;
+                })
+            });
+    });
 })

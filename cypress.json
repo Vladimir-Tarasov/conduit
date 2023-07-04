@@ -1,5 +1,0 @@
-{
-    "chromeWebSecurity": false,
-    "defaultCommandTimeout": 10000,
-    "baseUrl": "https://demo.realworld.io/"
-}

@@ -1,8 +1,8 @@
 ///<reference types="cypress" />
 
-import { getRandomNumber } from '/cypress/support/utils';
-import meUser from '/cypress/fixtures/me-user.json';
-import { login } from '/cypress/support/shared.js';
+import { getRandomNumber } from '../support/utils';
+import meUser from '../fixtures/me-user.json';
+import { login } from '../support/shared';
 
 describe('Sign up', () => {
 
