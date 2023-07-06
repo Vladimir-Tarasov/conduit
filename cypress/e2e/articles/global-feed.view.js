@@ -26,6 +26,36 @@ export class GlobalFeed {
             .find(this.article.preview)
             .eq(rnd)
             .as('randomArticle')
-            .click();
+        return this;
+    }
+
+    openArticle() {
+        cy.get('@randomArticle').click();
+    }
+
+    likeArticle() {
+        cy.get('@randomArticle').find('favorite-btn ng-transclude span')
+            .invoke('text')
+            .invoke('trim')
+            .as('likeCount');
+        cy.get('@randomArticle').find('favorite-btn').click();
+        cy.get('@likeCount').then(count => {
+            cy.get('@randomArticle').find('favorite-btn ng-transclude span')
+                .invoke('text')
+                .invoke('trim')
+                .should('include', 1 + + count);
+        });
+        return this;
+    }
+
+    cancelLike() {
+        cy.get('@randomArticle').find('favorite-btn').click();
+        cy.wait(2000);
+        cy.get('@likeCount').then(count => {
+            cy.get('@randomArticle').find('favorite-btn ng-transclude span')
+                .invoke('text')
+                .invoke('trim')
+                .should('include', count);
+        });
     }
 }

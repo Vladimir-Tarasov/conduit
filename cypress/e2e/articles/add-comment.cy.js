@@ -16,7 +16,8 @@ describe('test add comment', () => {
 
     it('should test add comment', () => {
         globalFeed.openGlobal()
-            .selectArticle();
+            .selectArticle()
+            .openArticle();
 
         articlePage.addComment()
             .checkComment();
