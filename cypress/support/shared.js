@@ -3,6 +3,13 @@ export function setJwtToken(window, token) {
 };
 
 export function waitForArticlesList() {
-    cy.get('@articlesList').contains('.article-preview', 'Loading')
+    cy.get('article-list')
+        .contains('.article-preview', 'Loading')
+        .should('not.be.visible');
+};
+
+export function waitPageLoading() {
+    cy.get('article-list')
+        .contains('.article-preview', 'Loading')
         .should('not.be.visible');
 };

@@ -29,6 +29,26 @@ export class GlobalFeed {
         return this;
     }
 
+    getArticleTitle() {
+        cy.get('@randomArticle')
+            .find('h1')
+            .invoke('text')
+            .invoke('trim')
+            .as('randomArticleTitle');
+    }
+
+    checkArticleUnavailability() {
+        cy.get('@randomArticleTitle').then(title => {
+            cy.get('article-list').should('not.contains.text', title)
+        });
+    }
+
+    checkArticleAvailability() {
+        cy.get('@randomArticleTitle').then(title => {
+            cy.get('article-list').should('contains.text', title)
+        });
+    }
+
     openArticle() {
         cy.get('@randomArticle').click();
     }
