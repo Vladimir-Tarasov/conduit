@@ -10,7 +10,7 @@ function waitPageLoading() {
 
 describe('navigate in list by paging', () => {
     before(() => {
-        cy.visit('/');
+        cy.visit('/')
         cy.location('hash').should('eq', '#/');
         cy.get('.navbar').should('be.visible').as('uppHeader');
         cy.get('article-list').as('articleList');
