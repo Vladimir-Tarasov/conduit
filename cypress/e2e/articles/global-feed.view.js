@@ -35,6 +35,7 @@ export class GlobalFeed {
             .invoke('text')
             .invoke('trim')
             .as('randomArticleTitle');
+        return this;
     }
 
     checkArticleUnavailability() {

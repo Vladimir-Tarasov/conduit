@@ -16,6 +16,10 @@ export class ArticlePage {
     delete: 'comment .card-footer .mod-options'
   };
 
+  article = {
+    title: '.container h1'
+  };
+
   addComment() {
     cy.get(this.form.textarea).click()
       .type(randomText);
@@ -35,5 +39,13 @@ export class ArticlePage {
       .click();
     cy.get(this.page.article)
       .should('not.contain', randomText);
+  }
+
+  checkTitle() {
+    cy.get('@randomArticleTitle').then(title => {
+      cy.get(this.page.article).find(this.article.title)
+        .should('have.text', title)
+    });
+    return this;
   }
 }
